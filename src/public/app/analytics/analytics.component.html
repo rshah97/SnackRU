@@ -1,0 +1,27 @@
+<header>
+  <h2 class="text-center">Inventory</h2>
+</header>
+<div class="form-group form-control-sm">
+    <label for="exampleFormControlSelect1" id = "sort">Sort by...  </label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>Remaining</option>
+      <option>Protein</option>
+      <option>Fats</option>
+      <option>Carbs</option>
+    </select>
+  </div>
+<div class="row" id="inventory">
+  <div class="col-sm-3" *ngFor="let item of getAllItems()">
+    <div class="card card-hover" style="width: 20rem;" [ngClass]="{'bg-danger': item.count < 15}">
+      <div class="card-body">
+        <h4 class="card-title">{{ item.name }}</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Remaining: {{ item.count }}</h6>
+        <p class="card-text">
+          Protein: {{ item.protein }}g<br>
+          Fats: {{ item.fats }}<br>
+          Carbs: {{ item.carbs }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
